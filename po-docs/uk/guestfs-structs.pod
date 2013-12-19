@@ -12,8 +12,8 @@
    struct guestfs_int_bool *val; /* Елементи. */
  };
  
- void guestfs_free_int_bool (struct guestfs_free_int_bool *);
- void guestfs_free_int_bool_list (struct guestfs_free_int_bool_list *);
+ void guestfs_free_int_bool (struct guestfs_int_bool *);
+ void guestfs_free_int_bool_list (struct guestfs_int_bool_list *);
 
 =head2 guestfs_lvm_pv
 
@@ -40,8 +40,8 @@
    struct guestfs_lvm_pv *val; /* елементи. */
  };
  
- void guestfs_free_lvm_pv (struct guestfs_free_lvm_pv *);
- void guestfs_free_lvm_pv_list (struct guestfs_free_lvm_pv_list *);
+ void guestfs_free_lvm_pv (struct guestfs_lvm_pv *);
+ void guestfs_free_lvm_pv_list (struct guestfs_lvm_pv_list *);
 
 =head2 guestfs_lvm_vg
 
@@ -73,8 +73,8 @@
    struct guestfs_lvm_vg *val; /* Елементи. */
  };
  
- void guestfs_free_lvm_vg (struct guestfs_free_lvm_vg *);
- void guestfs_free_lvm_vg_list (struct guestfs_free_lvm_vg_list *);
+ void guestfs_free_lvm_vg (struct guestfs_lvm_vg *);
+ void guestfs_free_lvm_vg_list (struct guestfs_lvm_vg_list *);
 
 =head2 guestfs_lvm_lv
 
@@ -105,8 +105,8 @@
    struct guestfs_lvm_lv *val; /* Елементи. */
  };
  
- void guestfs_free_lvm_lv (struct guestfs_free_lvm_lv *);
- void guestfs_free_lvm_lv_list (struct guestfs_free_lvm_lv_list *);
+ void guestfs_free_lvm_lv (struct guestfs_lvm_lv *);
+ void guestfs_free_lvm_lv_list (struct guestfs_lvm_lv_list *);
 
 =head2 guestfs_stat
 
@@ -131,8 +131,8 @@
    struct guestfs_stat *val; /* Елементи. */
  };
  
- void guestfs_free_stat (struct guestfs_free_stat *);
- void guestfs_free_stat_list (struct guestfs_free_stat_list *);
+ void guestfs_free_stat (struct guestfs_stat *);
+ void guestfs_free_stat_list (struct guestfs_stat_list *);
 
 =head2 guestfs_statvfs
 
@@ -155,8 +155,8 @@
    struct guestfs_statvfs *val; /* Елементи. */
  };
  
- void guestfs_free_statvfs (struct guestfs_free_statvfs *);
- void guestfs_free_statvfs_list (struct guestfs_free_statvfs_list *);
+ void guestfs_free_statvfs (struct guestfs_statvfs *);
+ void guestfs_free_statvfs_list (struct guestfs_statvfs_list *);
 
 =head2 guestfs_dirent
 
@@ -171,8 +171,8 @@
    struct guestfs_dirent *val; /* Елементи. */
  };
  
- void guestfs_free_dirent (struct guestfs_free_dirent *);
- void guestfs_free_dirent_list (struct guestfs_free_dirent_list *);
+ void guestfs_free_dirent (struct guestfs_dirent *);
+ void guestfs_free_dirent_list (struct guestfs_dirent_list *);
 
 =head2 guestfs_version
 
@@ -188,8 +188,8 @@
    struct guestfs_version *val; /* Елементи. */
  };
  
- void guestfs_free_version (struct guestfs_free_version *);
- void guestfs_free_version_list (struct guestfs_free_version_list *);
+ void guestfs_free_version (struct guestfs_version *);
+ void guestfs_free_version_list (struct guestfs_version_list *);
 
 =head2 guestfs_xattr
 
@@ -205,8 +205,8 @@
    struct guestfs_xattr *val; /* Елементи. */
  };
  
- void guestfs_free_xattr (struct guestfs_free_xattr *);
- void guestfs_free_xattr_list (struct guestfs_free_xattr_list *);
+ void guestfs_free_xattr (struct guestfs_xattr *);
+ void guestfs_free_xattr_list (struct guestfs_xattr_list *);
 
 =head2 guestfs_inotify_event
 
@@ -222,8 +222,8 @@
    struct guestfs_inotify_event *val; /* Елементи. */
  };
  
- void guestfs_free_inotify_event (struct guestfs_free_inotify_event *);
- void guestfs_free_inotify_event_list (struct guestfs_free_inotify_event_list *);
+ void guestfs_free_inotify_event (struct guestfs_inotify_event *);
+ void guestfs_free_inotify_event_list (struct guestfs_inotify_event_list *);
 
 =head2 guestfs_partition
 
@@ -239,8 +239,8 @@
    struct guestfs_partition *val; /* Елементи. */
  };
  
- void guestfs_free_partition (struct guestfs_free_partition *);
- void guestfs_free_partition_list (struct guestfs_free_partition_list *);
+ void guestfs_free_partition (struct guestfs_partition *);
+ void guestfs_free_partition_list (struct guestfs_partition_list *);
 
 =head2 guestfs_application
 
@@ -264,8 +264,8 @@
    struct guestfs_application *val; /* Елементи. */
  };
  
- void guestfs_free_application (struct guestfs_free_application *);
- void guestfs_free_application_list (struct guestfs_free_application_list *);
+ void guestfs_free_application (struct guestfs_application *);
+ void guestfs_free_application_list (struct guestfs_application_list *);
 
 =head2 guestfs_application2
 
@@ -294,8 +294,8 @@
    struct guestfs_application2 *val; /* Елементи. */
  };
  
- void guestfs_free_application2 (struct guestfs_free_application2 *);
- void guestfs_free_application2_list (struct guestfs_free_application2_list *);
+ void guestfs_free_application2 (struct guestfs_application2 *);
+ void guestfs_free_application2_list (struct guestfs_application2_list *);
 
 =head2 guestfs_isoinfo
 
@@ -324,8 +324,8 @@
    struct guestfs_isoinfo *val; /* Елементи. */
  };
  
- void guestfs_free_isoinfo (struct guestfs_free_isoinfo *);
- void guestfs_free_isoinfo_list (struct guestfs_free_isoinfo_list *);
+ void guestfs_free_isoinfo (struct guestfs_isoinfo *);
+ void guestfs_free_isoinfo_list (struct guestfs_isoinfo_list *);
 
 =head2 guestfs_mdstat
 
@@ -340,8 +340,8 @@
    struct guestfs_mdstat *val; /* Елементи. */
  };
  
- void guestfs_free_mdstat (struct guestfs_free_mdstat *);
- void guestfs_free_mdstat_list (struct guestfs_free_mdstat_list *);
+ void guestfs_free_mdstat (struct guestfs_mdstat *);
+ void guestfs_free_mdstat_list (struct guestfs_mdstat_list *);
 
 =head2 guestfs_btrfssubvolume
 
@@ -356,8 +356,8 @@
    struct guestfs_btrfssubvolume *val; /* Елементи. */
  };
  
- void guestfs_free_btrfssubvolume (struct guestfs_free_btrfssubvolume *);
- void guestfs_free_btrfssubvolume_list (struct guestfs_free_btrfssubvolume_list *);
+ void guestfs_free_btrfssubvolume (struct guestfs_btrfssubvolume *);
+ void guestfs_free_btrfssubvolume_list (struct guestfs_btrfssubvolume_list *);
 
 =head2 guestfs_xfsinfo
 
@@ -394,8 +394,8 @@
    struct guestfs_xfsinfo *val; /* Елементи. */
  };
  
- void guestfs_free_xfsinfo (struct guestfs_free_xfsinfo *);
- void guestfs_free_xfsinfo_list (struct guestfs_free_xfsinfo_list *);
+ void guestfs_free_xfsinfo (struct guestfs_xfsinfo *);
+ void guestfs_free_xfsinfo_list (struct guestfs_xfsinfo_list *);
 
 =head2 guestfs_utsname
 
@@ -411,8 +411,8 @@
    struct guestfs_utsname *val; /* Елементи. */
  };
  
- void guestfs_free_utsname (struct guestfs_free_utsname *);
- void guestfs_free_utsname_list (struct guestfs_free_utsname_list *);
+ void guestfs_free_utsname (struct guestfs_utsname *);
+ void guestfs_free_utsname_list (struct guestfs_utsname_list *);
 
 =head2 guestfs_hivex_node
 
@@ -425,8 +425,8 @@
    struct guestfs_hivex_node *val; /* Елементи. */
  };
  
- void guestfs_free_hivex_node (struct guestfs_free_hivex_node *);
- void guestfs_free_hivex_node_list (struct guestfs_free_hivex_node_list *);
+ void guestfs_free_hivex_node (struct guestfs_hivex_node *);
+ void guestfs_free_hivex_node_list (struct guestfs_hivex_node_list *);
 
 =head2 guestfs_hivex_value
 
@@ -439,8 +439,8 @@
    struct guestfs_hivex_value *val; /* Елементи. */
  };
  
- void guestfs_free_hivex_value (struct guestfs_free_hivex_value *);
- void guestfs_free_hivex_value_list (struct guestfs_free_hivex_value_list *);
+ void guestfs_free_hivex_value (struct guestfs_hivex_value *);
+ void guestfs_free_hivex_value_list (struct guestfs_hivex_value_list *);
 
 =head2 guestfs_internal_mountable
 
@@ -455,6 +455,6 @@
    struct guestfs_internal_mountable *val; /* Елементи. */
  };
  
- void guestfs_free_internal_mountable (struct guestfs_free_internal_mountable *);
- void guestfs_free_internal_mountable_list (struct guestfs_free_internal_mountable_list *);
+ void guestfs_free_internal_mountable (struct guestfs_internal_mountable *);
+ void guestfs_free_internal_mountable_list (struct guestfs_internal_mountable_list *);
 

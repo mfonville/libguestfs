@@ -1,3 +1,246 @@
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	Version 1.24.3.
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	builder: Change how EXTRA_DIST is generated.
+	So that we don't need to change this every time we upload
+	a new operating system signature.
+
+	(cherry picked from commit 34cbde5b884b9debb2d314763c2f5f914bea012c)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	appliance: Create an /etc/resolv.conf file referring to qemu user network nameserver (RHBZ#1044585).
+	(cherry picked from commit 1fcea09ee2e89d2e727e39df80dc595f5d0ba363)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	fish: Move -d option parsing to common function.
+	This is essentially just code motion, except:
+
+	(1) It cleans up a few variable declarations which were implicitly
+	used by the old macro that aren't needed any more.
+
+	(2) The options are reordered alphabetically.
+
+	(cherry picked from commit 28adf7cea6d4416e25ac65f930b4568c0460eb7f)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	fish: Deprecate the -D option (prefer --no-dest-paths instead).
+	This option will now print a warning:
+	guestfish: warning: -D option is deprecated, use --no-dest-paths instead
+
+	(cherry picked from commit d9826467c2bf90b7db7adfd8b0ae8cbbfbb5f04f)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	daemon: Improve error message for readlink call.
+	(cherry picked from commit 193b81a633501ccf6155935a50523cd802858410)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	generator: Fix bug in documentation of guestfs_free_* functions.
+	These appeared in the documentation as:
+
+	 void guestfs_free_int_bool (struct guestfs_free_int_bool *);
+	                                            ^^^^
+
+	which is obviously wrong.
+
+	(cherry picked from commit 882b91cb480811333627583dff3eca596281a3a9)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	fish: Ensure print_inspect_prompt can only be called by guestfish.
+	Code clean-up.
+
+	(cherry picked from commit d39b4dc606bb725b0790c24934dc936daf2c18d4)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	inspector: Ensure low-level inspection functions can only be called by virt-inspector.
+	Code clean-up.
+
+	(cherry picked from commit a4f4f9c075fd5788e9176436a4a356c957a6d6b5)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	fish: options: Fix incorrect comment.
+	(cherry picked from commit d6e4709f5bcc7dd465151fa357530445cf23acdd)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	virt-cat, virt-filesystems, virt-ls don't use libconfig.
+	So it doesn't need to be linked in.
+
+	(cherry picked from commit 076d73696e2f2fdd275863fe1b88ca9d2088b675)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	tests: guests: Add /etc/motd test file to Fedora test image.
+	(cherry picked from commit 685a28eb2cbcbe30420413c30780d2d729580931)
+
+	builder: no_proxy environment variable should be passed to the appliance.
+	(cherry picked from commit c4646290d61934cbec30f6e5c0d6226e7bfeb5c9)
+
+	builder: Add Fedora 20 image.
+	(cherry picked from commit 6f3ca3699d067f0d00c71a2bcf3c2fc981eccc40)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	builder: Refuse to write to a char device or /dev/null.
+	virt-builder --output /dev/null is tempting, but not possible, and
+	might result in /dev/null being deleted(!)  Check for this case and
+	prevent it happening.
+
+	(cherry picked from commit 3cf5a25e3f63ea6832b96468a94cdb13dbd26e92)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	resize: Move roundup64 function into common utilities.
+	This is just code motion.
+
+	(cherry picked from commit d98fbf2071f363d8738992d2999c2f24737e875b)
+
+2013-12-18  Hilko Bengen  <bengen@hilluzination.de>
+
+	golang: Don't run launch test if appliance has not been built.
+	(cherry picked from commit d57d8f22dec36f6cc80c2cd4ac4e936f0c0d0e49)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	golang: Add note about difficulty of parsing go version numbers.
+	(cherry picked from commit 3ae829d752fedec43dffedeec958c8084a68a919)
+
+2013-12-18  Pino Toscano  <ptoscano@redhat.com>
+
+	fuse: provide a stub "flush" implementation (RHBZ#660687).
+	It seems that FUSE can invoke flush to make sure the pending changes
+	(e.g. to the attributes) of a file are set. Since a missing flush
+	implementation is handled as if it were returning ENOSYS, this can cause
+	issues later.
+
+	To overcome this, just provide a stub implementation which does nothing,
+	since we have nothing to do and don't want to have FUSE error out.
+
+	Furthermore, uncomment the timestamp checks in test-fuse.sh, since now
+	they should be working fine.
+
+	(cherry picked from commit 1877c106030361821cf36c8873455d0c3d7134d3)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	recipes: Use new style -a/-d options in virt-edit example.
+	(cherry picked from commit 7775c121f782342e0d70351855bd6da3ebfb189e)
+
+2013-12-18  Hilko Bengen  <bengen@hilluzination.de>
+
+	Fix manpage generation in out-of-tree builds
+	(cherry picked from commit cbc0e79d38c125c7f436055c88fa1dbd5425827c)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	daemon: mkfs: Use -I option to force mkfs.fat to write a filesystem over a whole device (RHBZ#1039995).
+	If you use virt-make-fs to create a partitionless FAT-formatted disk
+	image then currently you will get an error:
+
+	$ virt-make-fs --type=fat . /tmp/test.img
+	'mkfs' (create filesystem) operation failed.
+	Instead of 'fat', try 'vfat' (long filenames) or 'msdos' (short filenames).
+	mkfs: fat: /dev/sda: mkfs.fat: Device partition expected, not making filesystem on entire device '/dev/sda' (use -I to override) at /usr/bin/virt-make-fs line 508, <PIPE> line 1.
+	      ...propagated at /usr/bin/virt-make-fs line 518, <PIPE> line 1.
+
+	With this patch, the error goes away and partitionless disks can be
+	created.
+
+	(cherry picked from commit b1210152217b35f52f204a1d92ee988ca713949c)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	proto: Remove another error message which hides earlier error.
+	When receive_file_data calls guestfs___recv_from_daemon, and that
+	function returns -1, it adds the following error to the handle:
+
+	  receive_file_data: parse error in reply callback
+
+	However this hides a more specific error message which was already
+	added by guestfs___recv_from_daemon.
+
+	(cherry picked from commit 1f0e75213bcb041083a87b46b3ec7bf1be054142)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	proto: Remove error message which hides earlier error.
+	When chunked encoding fails, the following error is added to
+	the handle:
+
+	  [filename]: error in chunked encoding
+
+	However all paths returning -1 from receive_file_data already set a
+	more specific error, which this error hides.
+
+	(cherry picked from commit 78df80d64970ba6b62bb59888069dd9f0343a804)
+
+2013-12-18  Pino Toscano  <ptoscano@redhat.com>
+
+	lib: fix newline in error output (RHBZ#923355).
+	(cherry picked from commit 41729c6556bbab7d5532a9a699848aa254b77d27)
+
+2013-12-18  Hilko Bengen  <bengen@hilluzination.de>
+
+	Fix virt-builder tests for out-of-tree build
+	(cherry picked from commit 3f44e09cb55d14e956a919d70325cde747c5404b)
+
+	Fix installing man-pages from out-of-tree build
+	(cherry picked from commit 38410afc5a99c222f3880342a441fbc8d28fbb3b)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	Add CentOS 6.5 image.
+	(cherry picked from commit f631770974770ba4a31f90d8a8315113c895dc0c)
+
+	recipes: Add a recipe for masking a systemd service.
+	(cherry picked from commit 5c76af3a954b54246ebc3ecbad748e75d2057424)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	Revert half of "builder: translate more user-visible strings"
+	Don't change "os-version" to "OS version".  It's intended to be the
+	same as the virt-builder man page, which consistently calls this the
+	"os-version" string.
+
+	This partially reverts commit ee0e56f43e55307fefa1d04505ed6477d604d220.
+
+	(cherry picked from commit 023128a0eb29163288eb923b2f9dc81aa919f1d9)
+
+2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
+
+	launch: direct: Pass -enable-fips option if qemu supports it.
+	(cherry picked from commit 915908fcdd6ebc2f20f760e21a7ca6c9a3848cc9)
+
+2013-12-18  Pino Toscano  <ptoscano@redhat.com>
+
+	fish: improve the command error messages
+	- when a command needs no parameters, tell that explicitly instead of
+	  "command should have 0 parameters"
+	- use gettext's plural form when printing the number of required
+	  arguments
+	- improve the error message for a variable number of parameters limited
+	  only in the maximum number of them, using also a plural form
+
+	(cherry picked from commit c60dc40fe44f7db401d22a85bf382a02ca73b24f)
+
+2013-12-18  Pino Toscano  <ptoscano@redhat.com>
+
+	builder: translate more user-visible strings
+	Translate also the "OS version" and "Notes" strings that appear in the
+	--long output.
+
+	(cherry picked from commit ee0e56f43e55307fefa1d04505ed6477d604d220)
+
 2013-12-06  Richard W.M. Jones  <rjones@redhat.com>
 
 	Version 1.24.2.
