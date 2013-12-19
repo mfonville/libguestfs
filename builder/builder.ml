@@ -310,6 +310,11 @@ let main () =
 
       output, Some size, format, delete_output_file, true in
 
+  if is_char_device output then (
+    eprintf (f_"%s: cannot output to a character device or /dev/null\n") prog;
+    exit 1
+  );
+
   let source =
     (* Uncompress it to a temporary file. *)
     let { Index_parser.file_uri = file_uri } = entry in
@@ -479,7 +484,7 @@ let main () =
         fun name ->
           try Some (sprintf "export %s=%s" name (quote (Sys.getenv name)))
           with Not_found -> None
-      ) [ "http_proxy"; "https_proxy"; "ftp_proxy" ] in
+      ) [ "http_proxy"; "https_proxy"; "ftp_proxy"; "no_proxy" ] in
     let env_vars = String.concat "\n" env_vars ^ "\n" in
 
     let cmd = sprintf "\
