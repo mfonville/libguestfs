@@ -1,3 +1,100 @@
+2014-01-02  Richard W.M. Jones  <rjones@redhat.com>
+
+	Version 1.24.4.
+
+	Update copyright dates for 2014.
+	(cherry picked from commit 6c971faecffd54f324a63b3c815925471b42d6bb)
+
+2014-01-02  Richard W.M. Jones  <rjones@redhat.com>
+
+	ruby: Fix .new method (RHBZ#1046509).
+	The .new method was unintentionally broken in
+	commit 9466060201600db47016133d80af22eb38091a49.
+
+	This fixes the .new method and allows it to be called with multiple
+	parameters, so you can use:
+
+	  Guestfs::Guestfs.new
+	  Guestfs::Guestfs.new()
+	  Guestfs::Guestfs.new(:close_on_exit => false)
+	  etc.
+
+	For backwards compatibility, Guestfs::create may still be used.
+
+	This commit also adds regression tests:
+
+	 - Use .new method in regular tests.  (Because this was not done
+	   before, we didn't catch the breakage.)
+
+	 - Test that ::create still works.
+
+	 - Test that args can be passed to .new method.
+
+	(cherry picked from commit ee4ce2a0298d012bd8c500c35dc50e1f53e88c8b)
+
+2014-01-02  Richard W.M. Jones  <rjones@redhat.com>
+
+	RHEL 6: ruby: Fix fallback to rake/rdoctask for old rake.
+	(cherry picked from commit 480bd3a6d8a56b37936b08c94eb99f0921fe65de)
+
+2014-01-02  Pino Toscano  <ptoscano@redhat.com>
+
+	tests/mountable: skip if btrfs is not available
+	This test uses btrfs, so skip it if either the "btrfs" feature or the
+	btrfs filesystem is not available.
+
+	(cherry picked from commit ac1d5ba77bd98c3e1fb061458254340bbdb823f2)
+
+2014-01-02  Pino Toscano  <ptoscano@redhat.com>
+
+	inspect: fix detection of newer CirrOS versions (RHBZ#1045450).
+	Add an own case for CirrOS, based on the /etc/cirros/version file
+	provided in newer version instead of the Buildroot-generated
+	/etc/br-version.
+
+	(cherry picked from commit d20289186d257105f304a4fa0c3e6d26a5fb0807)
+
+2014-01-02  Richard W.M. Jones  <rjones@redhat.com>
+
+	builder: Add support for RHEL 7.0 beta 1 (public beta) to the script.
+	(cherry picked from commit 1580d965cd2b994205aeef44f8c873aea2c91d5f)
+
+2014-01-02  Richard W.M. Jones  <rjones@redhat.com>
+
+	launch: libvirt: Clearer message when libvirt screws up.
+	Instead of:
+
+	libguestfs: error: could not create appliance through libvirt.
+	Try using the direct backend to run qemu directly without libvirt,
+	by setting the LIBGUESTFS_BACKEND=direct environment variable.: internal error: process exited while connecting to monitor: qemu-system-x86_64: -drive file=/tmp/libguestfs3RnJSd/snapshot2,if=none,id=drive-scsi0-0-0-0,format=qcow2,cache=writeback: could not open disk image /tmp/libguestfs3RnJSd/snapshot2: Could not open backing file: Could not open '/home/lsm5/fimagebuilder/fedora-imagebuilder/fedora-imagebuilder-sda.qcow2': Permission denied
+
+	it will now say:
+
+	libguestfs: error: could not create appliance through libvirt.
+
+	Try running qemu directly without libvirt using this environment variable:
+	export LIBGUESTFS_BACKEND=direct
+
+	Original error from libvirt: internal error: process exited while connecting to monitor: qemu-system-x86_64: -drive file=/tmp/libguestfs3RnJSd/snapshot2,if=none,id=drive-scsi0-0-0-0,format=qcow2,cache=writeback: could not open disk image /tmp/libguestfs3RnJSd/snapshot2: Could not open backing file: Could not open '/home/lsm5/fimagebuilder/fedora-imagebuilder/fedora-imagebuilder-sda.qcow2': Permission denied
+
+	(cherry picked from commit 8acb91a58487eba2f3598457a97afe3e559c52af)
+
+2014-01-02  Richard W.M. Jones  <rjones@redhat.com>
+
+	run: Use timeout --foreground option.
+	If timeout doesn't have this option (RHEL 6) don't use timeout at all.
+
+	Attempt to fix RHBZ#1025269.
+
+	(cherry picked from commit 681488877456b83f039dc518861f29ab4e1857f0)
+
+2014-01-02  Richard W.M. Jones  <rjones@redhat.com>
+
+	fish: Fix memory leak in inspect/-i code (detected by valgrind).
+	This only manifested in the new virt-diff tool.
+
+	(cherry picked from commit 70db54974b87c6b4384dbf8b839e0335e70189ae)
+
 2013-12-18  Richard W.M. Jones  <rjones@redhat.com>
 
 	Version 1.24.3.
