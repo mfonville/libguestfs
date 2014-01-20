@@ -407,6 +407,7 @@ Makefile.in
 /src/libguestfs.syms
 /src/.libs/libguestfs.so
 /src/stamp-guestfs.pod
+/src/test-utils
 /stamp-guestfs-release-notes.pod
 /stamp-h1
 /sysprep/.depend
@@ -474,6 +475,7 @@ Makefile.in
 /tests/regressions/rhbz501893
 /tests/regressions/rhbz790721
 /tests/regressions/rhbz914931
+/tests/regressions/rhbz1055452
 /tests/rsync/rsyncd.pid
 /tests/syslinux/extlinux-guest.img
 /tests/syslinux/syslinux-guest.img

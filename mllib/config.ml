@@ -17,4 +17,4 @@
  *)
 
 let package_name = "libguestfs"
-let package_version = "1.24.4"
+let package_version = "1.24.5"
