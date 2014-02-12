@@ -122,7 +122,8 @@ let rec generate_prototype ?(extern = true) ?(static = false)
     | Device n | Dev_or_Path n
     | String n
     | OptString n
-    | Key n ->
+    | Key n
+    | GUID n ->
         next ();
         pr "const char *%s" n
     | Mountable n | Mountable_or_Path n ->
@@ -963,7 +964,8 @@ and generate_client_actions hash () =
       | StringList n
       | DeviceList n
       | Key n
-      | Pointer (_, n) ->
+      | Pointer (_, n)
+      | GUID n ->
           pr "  if (%s == NULL) {\n" n;
           pr "    error (g, \"%%s: %%s: parameter cannot be NULL\",\n";
           pr "           \"%s\", \"%s\");\n" c_name n;
@@ -1047,6 +1049,47 @@ and generate_client_actions hash () =
         pr "\n";
   in
 
+  (* Generate code to check for parameter validation (where supported
+   * for the type).
+   *)
+  let check_args_validity c_name (ret, args, optargs) =
+    let pr_newline = ref false in
+    List.iter (
+      function
+      | GUID n ->
+          pr "  if (!guestfs___validate_guid (%s)) {\n" n;
+          pr "    error (g, \"%%s: %%s: parameter is not a valid GUID\",\n";
+          pr "           \"%s\", \"%s\");\n" c_name n;
+          let errcode =
+            match errcode_of_ret ret with
+            | `CannotReturnError -> assert false
+            | (`ErrorIsMinusOne |`ErrorIsNULL) as e -> e in
+          pr "    return %s;\n" (string_of_errcode errcode);
+          pr "  }\n";
+          pr_newline := true
+
+      (* not applicable *)
+      | String _
+      | Device _
+      | Mountable _
+      | Pathname _
+      | Dev_or_Path _ | Mountable_or_Path _
+      | FileIn _
+      | FileOut _
+      | BufferIn _
+      | StringList _
+      | DeviceList _
+      | Key _
+      | Pointer (_, _)
+      | OptString _
+      | Bool _
+      | Int _
+      | Int64 _ -> ()
+    ) args;
+
+    if !pr_newline then pr "\n";
+  in
+
   (* Generate code to generate guestfish call traces. *)
   let trace_call name c_name (ret, args, optargs) =
     pr "  if (trace_flag) {\n";
@@ -1076,7 +1119,8 @@ and generate_client_actions hash () =
       | Pathname n
       | Dev_or_Path n | Mountable_or_Path n
       | FileIn n
-      | FileOut n ->
+      | FileOut n
+      | GUID n ->
           (* guestfish doesn't support string escaping, so neither do we *)
           pr "    fprintf (trace_buffer.fp, \" \\\"%%s\\\"\", %s);\n" n
       | Key n ->
@@ -1264,6 +1308,7 @@ and generate_client_actions hash () =
     enter_event name;
     check_null_strings c_name style;
     reject_unknown_optargs c_name style;
+    check_args_validity c_name style;
     trace_call name c_name style;
     pr "  r = guestfs__%s " c_name;
     generate_c_call_args ~handle:"g" ~implicit_size_ptr:"size_r" style;
@@ -1366,6 +1411,7 @@ and generate_client_actions hash () =
     enter_event name;
     check_null_strings c_name style;
     reject_unknown_optargs c_name style;
+    check_args_validity c_name style;
     trace_call name c_name style;
 
     (* Calculate the total size of all FileIn arguments to pass
@@ -1398,7 +1444,7 @@ and generate_client_actions hash () =
         function
         | Pathname n | Device n | Mountable n | Dev_or_Path n 
         | Mountable_or_Path n | String n
-        | Key n ->
+        | Key n | GUID n ->
           pr "  args.%s = (char *) %s;\n" n n
         | OptString n ->
           pr "  args.%s = %s ? (char **) &%s : NULL;\n" n n n

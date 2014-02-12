@@ -11258,9 +11258,18 @@ group with GUID C<diskgroup>." };
 
   { defaults with
     name = "part_set_gpt_type";
-    style = RErr, [Device "device"; Int "partnum"; String "guid"], [];
+    style = RErr, [Device "device"; Int "partnum"; GUID "guid"], [];
     proc_nr = Some 392;
     optional = Some "gdisk";
+    tests = [
+      InitGPT, Always, TestLastFail (
+        [["part_set_gpt_type"; "/dev/sda"; "1"; "f"]]), [];
+      InitGPT, Always, TestResultString (
+        [["part_set_gpt_type"; "/dev/sda"; "1";
+          "01234567-89AB-CDEF-0123-456789ABCDEF"];
+         ["part_get_gpt_type"; "/dev/sda"; "1"]],
+        "01234567-89AB-CDEF-0123-456789ABCDEF"), [];
+    ];
     shortdesc = "set the type GUID of a GPT partition";
     longdesc = "\
 Set the type GUID of numbered GPT partition C<partnum> to C<guid>. Return an
@@ -11477,7 +11486,7 @@ parameter.  In future we may allow other flags to be adjusted." };
       ]);
     shortdesc = "set the filesystem UUID";
     longdesc = "\
-Set the filesystem UIUD on C<device> to C<label>.
+Set the filesystem UUID on C<device> to C<uuid>.
 
 Only some filesystem types support setting UUIDs.
 

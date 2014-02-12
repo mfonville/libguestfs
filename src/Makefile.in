@@ -338,7 +338,7 @@ am_libguestfs_la_OBJECTS = libguestfs_la-actions-0.lo \
 	libguestfs_la-actions-support.lo \
 	libguestfs_la-actions-variants.lo libguestfs_la-alloc.lo \
 	libguestfs_la-appliance.lo libguestfs_la-bindtests.lo \
-	libguestfs_la-command.lo libguestfs_la-canonical-name.lo \
+	libguestfs_la-canonical-name.lo libguestfs_la-command.lo \
 	libguestfs_la-conn-socket.lo libguestfs_la-dbdump.lo \
 	libguestfs_la-drives.lo libguestfs_la-errors.lo \
 	libguestfs_la-event-string.lo libguestfs_la-events.lo \
@@ -1608,8 +1608,8 @@ libguestfs_la_SOURCES = \
 	alloc.c \
 	appliance.c \
 	bindtests.c \
-	command.c \
 	canonical-name.c \
+	command.c \
 	conn-socket.c \
 	dbdump.c \
 	drives.c \
@@ -2018,19 +2018,19 @@ libguestfs_la-bindtests.lo: bindtests.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libguestfs_la_CPPFLAGS) $(CPPFLAGS) $(libguestfs_la_CFLAGS) $(CFLAGS) -c -o libguestfs_la-bindtests.lo `test -f 'bindtests.c' || echo '$(srcdir)/'`bindtests.c
 
-libguestfs_la-command.lo: command.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libguestfs_la_CPPFLAGS) $(CPPFLAGS) $(libguestfs_la_CFLAGS) $(CFLAGS) -MT libguestfs_la-command.lo -MD -MP -MF $(DEPDIR)/libguestfs_la-command.Tpo -c -o libguestfs_la-command.lo `test -f 'command.c' || echo '$(srcdir)/'`command.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libguestfs_la-command.Tpo $(DEPDIR)/libguestfs_la-command.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='command.c' object='libguestfs_la-command.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libguestfs_la_CPPFLAGS) $(CPPFLAGS) $(libguestfs_la_CFLAGS) $(CFLAGS) -c -o libguestfs_la-command.lo `test -f 'command.c' || echo '$(srcdir)/'`command.c
-
 libguestfs_la-canonical-name.lo: canonical-name.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libguestfs_la_CPPFLAGS) $(CPPFLAGS) $(libguestfs_la_CFLAGS) $(CFLAGS) -MT libguestfs_la-canonical-name.lo -MD -MP -MF $(DEPDIR)/libguestfs_la-canonical-name.Tpo -c -o libguestfs_la-canonical-name.lo `test -f 'canonical-name.c' || echo '$(srcdir)/'`canonical-name.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libguestfs_la-canonical-name.Tpo $(DEPDIR)/libguestfs_la-canonical-name.Plo
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='canonical-name.c' object='libguestfs_la-canonical-name.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libguestfs_la_CPPFLAGS) $(CPPFLAGS) $(libguestfs_la_CFLAGS) $(CFLAGS) -c -o libguestfs_la-canonical-name.lo `test -f 'canonical-name.c' || echo '$(srcdir)/'`canonical-name.c
+
+libguestfs_la-command.lo: command.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libguestfs_la_CPPFLAGS) $(CPPFLAGS) $(libguestfs_la_CFLAGS) $(CFLAGS) -MT libguestfs_la-command.lo -MD -MP -MF $(DEPDIR)/libguestfs_la-command.Tpo -c -o libguestfs_la-command.lo `test -f 'command.c' || echo '$(srcdir)/'`command.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libguestfs_la-command.Tpo $(DEPDIR)/libguestfs_la-command.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='command.c' object='libguestfs_la-command.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libguestfs_la_CPPFLAGS) $(CPPFLAGS) $(libguestfs_la_CFLAGS) $(CFLAGS) -c -o libguestfs_la-command.lo `test -f 'command.c' || echo '$(srcdir)/'`command.c
 
 libguestfs_la-conn-socket.lo: conn-socket.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libguestfs_la_CPPFLAGS) $(CPPFLAGS) $(libguestfs_la_CFLAGS) $(CFLAGS) -MT libguestfs_la-conn-socket.lo -MD -MP -MF $(DEPDIR)/libguestfs_la-conn-socket.Tpo -c -o libguestfs_la-conn-socket.lo `test -f 'conn-socket.c' || echo '$(srcdir)/'`conn-socket.c
