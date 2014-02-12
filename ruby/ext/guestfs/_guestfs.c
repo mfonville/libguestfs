@@ -24763,7 +24763,7 @@ ruby_guestfs_remount (int argc, VALUE *argv, VALUE gv)
  *
  * set the filesystem UUID
  *
- * Set the filesystem UIUD on "device" to "label".
+ * Set the filesystem UUID on "device" to "uuid".
  * 
  * Only some filesystem types support setting UUIDs.
  * 

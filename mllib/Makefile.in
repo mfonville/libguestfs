@@ -1422,6 +1422,8 @@ SOURCES = \
 	hostname.ml \
 	password.mli \
 	password.ml \
+	perl_edit.mli \
+	perl_edit.ml \
 	progress-c.c \
 	progress.mli \
 	progress.ml \
@@ -1457,6 +1459,7 @@ SOURCES = \
 @HAVE_OCAML_TRUE@	random_seed.cmx \
 @HAVE_OCAML_TRUE@	hostname.cmx \
 @HAVE_OCAML_TRUE@	firstboot.cmx \
+@HAVE_OCAML_TRUE@	perl_edit.cmx \
 @HAVE_OCAML_TRUE@	tTY.cmx \
 @HAVE_OCAML_TRUE@	fsync.cmx \
 @HAVE_OCAML_TRUE@	progress.cmx \

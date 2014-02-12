@@ -1456,8 +1456,6 @@ SOURCES = \
 	index_parser.ml \
 	list_entries.mli \
 	list_entries.ml \
-	perl_edit.ml \
-	perl_edit.mli \
 	sigchecker.mli \
 	sigchecker.ml
 
@@ -1471,6 +1469,7 @@ SOURCES = \
 @HAVE_OCAML_TRUE@	$(top_builddir)/mllib/random_seed.cmx \
 @HAVE_OCAML_TRUE@	$(top_builddir)/mllib/hostname.cmx \
 @HAVE_OCAML_TRUE@	$(top_builddir)/mllib/firstboot.cmx \
+@HAVE_OCAML_TRUE@	$(top_builddir)/mllib/perl_edit.cmx \
 @HAVE_OCAML_TRUE@	$(top_builddir)/mllib/crypt-c.o \
 @HAVE_OCAML_TRUE@	$(top_builddir)/mllib/crypt.cmx \
 @HAVE_OCAML_TRUE@	$(top_builddir)/mllib/fsync-c.o \
@@ -1482,7 +1481,6 @@ SOURCES = \
 @HAVE_OCAML_TRUE@	sigchecker.cmx \
 @HAVE_OCAML_TRUE@	index_parser.cmx \
 @HAVE_OCAML_TRUE@	list_entries.cmx \
-@HAVE_OCAML_TRUE@	perl_edit.cmx \
 @HAVE_OCAML_TRUE@	cmdline.cmx \
 @HAVE_OCAML_TRUE@	builder.cmx
 

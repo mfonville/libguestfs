@@ -485,9 +485,9 @@ L<sh(1)> for details.
 
 =head1 関連項目
 
-L<guestfs(3)>, L<guestfish(1)>, L<virt-clone(1)>, L<virt-rescue(1)>,
-L<virt-resize(1)>, L<virt-sparsify(1)>, L<virsh(1)>, L<lvcreate(8)>,
-L<qemu-img(1)>, L<scrub(1)>, L<http://libguestfs.org/>,
+L<guestfs(3)>, L<guestfish(1)>, L<virt-builder(1)>, L<virt-clone(1)>,
+L<virt-rescue(1)>, L<virt-resize(1)>, L<virt-sparsify(1)>, L<virsh(1)>,
+L<lvcreate(8)>, L<qemu-img(1)>, L<scrub(1)>, L<http://libguestfs.org/>,
 L<http://libvirt.org/>.
 
 =head1 著者
