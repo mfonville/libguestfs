@@ -259,6 +259,18 @@ Description: guest disk image management system - Java bindings
  .
  This package contains Java bindings to libguestfs.
 
+Package: ruby-guestfs
+Section: ruby
+XB-Ruby-Versions: ${ruby:Versions}
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+Conflicts: libguestfs-dev (<< 1:1.15.15-1~)
+Description: guest disk image management system - Ruby bindings
+ The libguestfs library allows accessing and modifying guest disk
+ images.
+ .
+ This package contains Ruby bindings to libguestfs.
+
 Package: libguestfs-gobject-1.0-0
 Section: libs
 Architecture: i386 amd64
