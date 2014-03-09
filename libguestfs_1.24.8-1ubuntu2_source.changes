@@ -1,0 +1,56 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Sun, 09 Mar 2014 16:44:27 +0100
+Source: libguestfs
+Binary: guestfsd libguestfs-dev libguestfs0 libguestfs-tools libguestfs0-dbg python-guestfs python3-guestfs libguestfs-perl libguestfs-ocaml libguestfs-ocaml-dev erlang-guestfs libguestfs-java ruby-guestfs libguestfs-gobject-1.0-0 libguestfs-gobject-dev gir1.2-guestfs-1.0 lua-guestfs golang-guestfs-dev
+Architecture: source
+Version: 1:1.24.8-1ubuntu2
+Distribution: saucy
+Urgency: low
+Maintainer: Debian Libvirt Maintainers <pkg-libvirt-maintainers@lists.alioth.debian.org>
+Changed-By: Maarten Fonville <maarten.fonville@gmail.com>
+Description: 
+ erlang-guestfs - guest disk image management system - Erlang bindings
+ gir1.2-guestfs-1.0 - guest disk image management system - GObject introspection files
+ golang-guestfs-dev - guest disk image management system - Golang bindings
+ guestfsd   - Daemon to access to guest virtual machine through virtio serial
+ libguestfs-dev - guest disk image management system - development headers
+ libguestfs-gobject-1.0-0 - guest disk image management system - GObject bindings
+ libguestfs-gobject-dev - guest disk image management system - GObject development headers
+ libguestfs-java - guest disk image management system - Java bindings
+ libguestfs-ocaml - guest disk image management system - OCaml bindings
+ libguestfs-ocaml-dev - guest disk image management system - OCaml development files
+ libguestfs-perl - guest disk image management system - Perl bindings
+ libguestfs-tools - guest disk image management system - tools
+ libguestfs0 - guest disk image management system - shared library
+ libguestfs0-dbg - guest disk image management system - debug symbols
+ lua-guestfs - guest disk image management system - Lua bindings
+ python-guestfs - guest disk image management system - Python bindings
+ python3-guestfs - guest disk image management system - Python 3 bindings
+ ruby-guestfs - guest disk image management system - Ruby bindings
+Changes: 
+ libguestfs (1:1.24.8-1ubuntu2) saucy; urgency=low
+ .
+   * saucy build
+Checksums-Sha1: 
+ 9abc60beead90ae7fd00e0cea2b5660d3f9bcd84 3306 libguestfs_1.24.8-1ubuntu2.dsc
+ 22526111892b13eb50b9763788937538ae472464 11405709 libguestfs_1.24.8.orig.tar.gz
+ e0dcc20ee5cabcf25fc952d906b1c40e5ce0ea12 29369 libguestfs_1.24.8-1ubuntu2.debian.tar.gz
+Checksums-Sha256: 
+ 9acaedbe98383dd446b5ed0fb6c6e7932d8ae29aa763faf4305c94a03f16ccc6 3306 libguestfs_1.24.8-1ubuntu2.dsc
+ 34b6b53f2429a9f77bdd2c61297ccfaf05966836df722e9c23028804662d1aa9 11405709 libguestfs_1.24.8.orig.tar.gz
+ 906311168dde060d2edff79069fd565453dbbcb3b1f1332034aa49ee16af9b63 29369 libguestfs_1.24.8-1ubuntu2.debian.tar.gz
+Files: 
+ 2ed8f599689bb3fb94418b4be611736a 3306 libs extra libguestfs_1.24.8-1ubuntu2.dsc
+ 4506538266bd19db721c71908790db35 11405709 libs extra libguestfs_1.24.8.orig.tar.gz
+ bc7e09e0ead8f40f80608e93d3a6e836 29369 libs extra libguestfs_1.24.8-1ubuntu2.debian.tar.gz
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.14 (GNU/Linux)
+
+iEYEARECAAYFAlMcq1wACgkQXjGr8JbE19UtbgCguOo4yX/4xTkH51UlLCVpz2EA
+NGgAoI4CNmrkgTlPWLQ1iqbDpE1KlIdN
+=g0mg
+-----END PGP SIGNATURE-----

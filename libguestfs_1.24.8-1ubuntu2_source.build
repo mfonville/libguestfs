@@ -1,0 +1,40 @@
+ dpkg-buildpackage -rfakeroot -d -us -uc -S -sa
+dpkg-buildpackage: source package libguestfs
+dpkg-buildpackage: source version 1:1.24.8-1ubuntu2
+dpkg-buildpackage: source changed by Maarten Fonville <maarten.fonville@gmail.com>
+ dpkg-source --before-build libguestfs-1.24.8
+ fakeroot debian/rules clean
+dh clean \
+	   --parallel \
+	   --without=python-support \
+	   --with=autoreconf,ocaml,python2,python3,bash-completion,ruby,gir,lua
+   dh_testdir -O--parallel
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory `/home/maarten/Development/libguestfs/libguestfs-1.24.8'
+set -e; for p in python3.3 ruby1.8 ruby2.0 lua5.1 default; do \
+		dh_auto_clean --builddir=/home/maarten/Development/libguestfs/libguestfs-1.24.8/debian/build-$p ; \
+	done
+make[1]: Leaving directory `/home/maarten/Development/libguestfs/libguestfs-1.24.8'
+   dh_autoreconf_clean -O--parallel
+   dh_ocamlclean -O--parallel
+   dh_clean -O--parallel
+ dpkg-source -b libguestfs-1.24.8
+dpkg-source: warning: Version number suggests Ubuntu changes, but Maintainer: does not have Ubuntu address
+dpkg-source: warning: Version number suggests Ubuntu changes, but there is no XSBC-Original-Maintainer field
+dpkg-source: info: using source format `3.0 (quilt)'
+dpkg-source: info: building libguestfs using existing ./libguestfs_1.24.8.orig.tar.gz
+dpkg-source: info: building libguestfs in libguestfs_1.24.8-1ubuntu2.debian.tar.gz
+dpkg-source: info: building libguestfs in libguestfs_1.24.8-1ubuntu2.dsc
+ dpkg-genchanges -S -sa >../libguestfs_1.24.8-1ubuntu2_source.changes
+dpkg-genchanges: including full source code in upload
+ dpkg-source --after-build libguestfs-1.24.8
+dpkg-buildpackage: full upload (original source is included)
+Now running lintian...
+W: libguestfs source: newer-standards-version 3.9.5 (current is 3.9.4)
+Finished running lintian.
+Now signing changes and any dsc files...
+ signfile libguestfs_1.24.8-1ubuntu2.dsc Maarten Fonville <maarten.fonville@gmail.com>
+
+ signfile libguestfs_1.24.8-1ubuntu2_source.changes Maarten Fonville <maarten.fonville@gmail.com>
+
+Successfully signed dsc and changes files
