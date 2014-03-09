@@ -1,3 +1,0 @@
-usr/sbin/guestfsd
-usr/share/man/man8/guestfsd.8*
-lib/udev/rules.d/99-guestfs-serial.rules
